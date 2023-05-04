@@ -1,0 +1,16 @@
+# Standards: 1.2
+---
+# @var nodejs_keyring:description: Path for the repository keyring
+nodejs_keyring: /usr/share/keyrings/nodesource-archive-keyring.gpg
+
+# @var nodejs_arch:description: Architecture for nodejs repo
+nodejs_arch: "{{ 'arm64' if ansible_architecture == 'aarch64' else 'amd64' }}"
+
+# @var nodejs_version:description: Major version of nodejs to install
+nodejs_version: 18
+
+# @var nodejs_packages:description: List of packages to install
+nodejs_packages:
+  - nodejs
+
+...
