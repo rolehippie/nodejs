@@ -2,7 +2,7 @@
 
 [![Source Code](https://img.shields.io/badge/github-source%20code-blue?logo=github&amp;logoColor=white)](https://github.com/rolehippie/nodejs)
 [![General Workflow](https://github.com/rolehippie/nodejs/actions/workflows/general.yml/badge.svg)](https://github.com/rolehippie/nodejs/actions/workflows/general.yml)
-[![Readme Workflow](https://github.com/rolehippie/nodejs/actions/workflows/docs.yml/badge.svg)](https://github.com/rolehippie/nodejs/actions/workflows/docs.yml)
+[![Readme Workflow](https://github.com/rolehippie/nodejs/actions/workflows/readme.yml/badge.svg)](https://github.com/rolehippie/nodejs/actions/workflows/readme.yml)
 [![Galaxy Workflow](https://github.com/rolehippie/nodejs/actions/workflows/galaxy.yml/badge.svg)](https://github.com/rolehippie/nodejs/actions/workflows/galaxy.yml)
 [![License: Apache-2.0](https://img.shields.io/github/license/rolehippie/nodejs)](https://github.com/rolehippie/nodejs/blob/master/LICENSE)
 [![Ansible Role](https://img.shields.io/badge/role-rolehippie.nodejs-blue)](https://galaxy.ansible.com/rolehippie/nodejs)
