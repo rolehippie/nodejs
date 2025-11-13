@@ -10,7 +10,7 @@
   ansible.builtin.apt_repository:
     repo: "deb [arch={{ nodejs_arch }} signed-by={{ nodejs_keyring }}] https://deb.nodesource.com/node_{{ nodejs_version }}.x {{ ansible_distribution_release }} main"
     filename: nodesource
-    update_cache: True
+    update_cache: true
     state: present
   tags:
     - nodejs
