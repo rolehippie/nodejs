@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/rolehippie/nodejs/compare/v2.0.0...v2.1.0) (2025-11-17)
+
+
+### Features
+
+* apply new repo structure and update linting ([2b0c0b5](https://github.com/rolehippie/nodejs/commit/2b0c0b5c07763440bfcd67688bf501a58345b3bc))
+
 ## [2.0.0](https://github.com/rolehippie/nodejs/compare/v1.0.0...v2.0.0) (2024-02-12)
 
 
