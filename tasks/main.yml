@@ -1,14 +1,35 @@
 ---
+
 - name: Download repo key
-  ansible.builtin.shell:
-    cmd: "curl -sSL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | gpg --dearmor --output {{ nodejs_keyring }}"
-    creates: "{{ nodejs_keyring }}"
+  register: nodejs_key_download
+  ansible.builtin.get_url:
+    url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+    dest: "{{ nodejs_keyring }}.asc"
+    mode: u=rw,g=r,o=r
+    force: true
+  tags:
+    - nodejs
+
+- name: Check repo key
+  register: nodejs_key_status
+  ansible.builtin.stat:
+    path: "{{ nodejs_keyring }}"
+  tags:
+    - nodejs
+
+- name: Dearmor repo key
+  when:
+    - nodejs_key_download.changed or not nodejs_key_status.stat.exists
+  register: nodejs_key_convert
+  changed_when: nodejs_key_convert.rc == 0
+  ansible.builtin.command:
+    cmd: "gpg --batch --yes --dearmor -o {{ nodejs_keyring }} {{ nodejs_keyring }}.asc"
   tags:
     - nodejs
 
 - name: Add apt repository
   ansible.builtin.apt_repository:
-    repo: "deb [arch={{ nodejs_arch }} signed-by={{ nodejs_keyring }}] https://deb.nodesource.com/node_{{ nodejs_version }}.x {{ ansible_distribution_release }} main"
+    repo: "deb [arch={{ nodejs_arch }} signed-by={{ nodejs_keyring }}] https://deb.nodesource.com/node_{{ nodejs_version }}.x nodistro main"
     filename: nodesource
     update_cache: true
     state: present

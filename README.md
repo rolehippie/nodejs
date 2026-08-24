@@ -41,7 +41,7 @@ Architecture for nodejs repo
 #### Default value
 
 ```YAML
-nodejs_arch: "{{ 'arm64' if ansible_architecture == 'aarch64' else 'amd64' }}"
+nodejs_arch: "{{ 'arm64' if ansible_facts['architecture'] in ['aarch64', 'arm64'] else 'amd64' }}"
 ```
 
 ### nodejs_keyring
